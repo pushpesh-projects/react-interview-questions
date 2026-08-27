@@ -3,4 +3,5 @@
 3. why do we write type='module' in script tag?
 4. eg of inline elements - <a>, <span> <img> they are appear on the same line
 5. block level elements - appear on the different line <p> <h1> <div>
+6. what is difference between input type='submit' and button element while using in react forms
 
