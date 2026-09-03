@@ -11,3 +11,21 @@ portrait - images are taller than wider
    align-items: center
    flex-shrink: 0
    }
+4. box-sizing: border-box;
+5.   max-height: 400px;
+    max-width: 400px;
+6. .dice-container {
+    display: grid;
+    grid-template: auto auto / repeat(5, 1fr);
+    gap: 20px;
+}
+7.  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+8.  font css
+   font-family: Inter, sans-serif;
+    font-size: 1.75rem;
+    font-weight: bold;
+
+9. cursor: pointer;
+10. border-radius: 10px;
+    border: none;
+11.
