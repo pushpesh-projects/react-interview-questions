@@ -28,4 +28,4 @@ portrait - images are taller than wider
 9. cursor: pointer;
 10. border-radius: 10px;
     border: none;
-11.
+   
