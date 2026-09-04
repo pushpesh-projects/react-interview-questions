@@ -28,4 +28,16 @@ portrait - images are taller than wider
 9. cursor: pointer;
 10. border-radius: 10px;
     border: none;
+11. button styling
+    button.roll-dice {
+    height: 50px;
+    white-space: nowrap;
+    width: auto;
+    padding: 6px 21px;
+    border: none;
+    border-radius: 6px;
+    background-color: #5035FF;
+    color: white;
+    font-size: 1.2rem;
+}
    
