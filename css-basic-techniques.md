@@ -40,4 +40,10 @@ portrait - images are taller than wider
     color: white;
     font-size: 1.2rem;
 }
+12. 
+section.keyboard > button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5
+}
+
    
