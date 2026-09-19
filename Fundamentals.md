@@ -14,4 +14,5 @@ on the page and allow the tool (React, e.g.) to handle the details on *how* to
 put those things on the page.
 10. what is react component vs react element? React component is a function that returns react elements.
 11. lazy state initialization :  const [dice, setDice] = useState(() => generateAllNewDice())
-12. 
+12. diff between props vs compound component pattern- In the normal props based components, the philosophy is you(parent component) define the configuration via props and I will decide the UI structure. compound components take the opposite approach, It says you (parent component) decide the structure and I(child component) will provide the shared behaviour.
+13. 
