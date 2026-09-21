@@ -20,3 +20,6 @@ put those things on the page.
 15. when a state variable changes, the parent component re renders and if there is any child component inside the parent then that child also re renders. This re render is independent of whether child receives a prop or not. Incase you don't want to rerender the child component , then a lame solution can be to memoize the child component using React.memo , better solution is to use children prop pattern.
  props are immutable, only i development mode and in production mode, react does not restrict.
 16. children prop pattern or composition pattern- use case polymorphic component, high reusability , high customization, prevent re renders , alternative of memo in some cases
+17. In compound components, we flatten the structure and it helps us avoid the problems of prop drilling. It helps us pass props easily to the nested components.
+18. In compound components we create several components which work together to achieve a functionality. In react compound component use children props. Have dedicated functionality or styling, it makes the component structure more transparent, and give more control to the user of the component.
+19. 
