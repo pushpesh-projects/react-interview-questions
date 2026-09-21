@@ -21,5 +21,5 @@ put those things on the page.
  props are immutable, only i development mode and in production mode, react does not restrict.
 16. children prop pattern or composition pattern- use case polymorphic component, high reusability , high customization, prevent re renders , alternative of memo in some cases
 17. In compound components, we flatten the structure and it helps us avoid the problems of prop drilling. It helps us pass props easily to the nested components.
-18. In compound components we create several components which work together to achieve a functionality. In react compound component use children props. Have dedicated functionality or styling, it makes the component structure more transparent, and give more control to the user of the component.
-19. 
+18. In compound components we create several sub components which work together to achieve a functionality rather than relying on one single component. In react compound component use children props. Have dedicated functionality or styling, it makes the component structure more transparent, and give more control to the user of the component.
+19. Compound component "flatten" the hierarchy that I would otherwise need to pass props through. Since I need to provide the children to render, the parent-most component has direct access to those "grandchild" components, to which it can pass whatever props it needs to pass directly.
