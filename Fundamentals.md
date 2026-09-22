@@ -23,5 +23,6 @@ put those things on the page.
 17. In compound components, we flatten the structure and it helps us avoid the problems of prop drilling. It helps us pass props easily to the nested components.
 18. In compound components we create several sub components which work together to achieve a functionality rather than relying on one single component. In react compound component use children props. Have dedicated functionality or styling, it makes the component structure more transparent, and give more control to the user of the component.
 19. Compound component "flatten" the hierarchy that I would otherwise need to pass props through. Since I need to provide the children to render, the parent-most component has direct access to those "grandchild" components, to which it can pass whatever props it needs to pass directly. In compound component, composed components work together and usually share state or behavior.
-20. what is component composition in react?
+20. what is component composition in react? - Instead of creating one component that does everything, build small components with clear responsibilities and combine them to build more complex UI.
+And children, props containing JSX, and compound components are simply different ways to achieve that composition.
 21. Headless component in react - Headless component in react does not have any styled UI to display , they are purely intended for providing functionality
