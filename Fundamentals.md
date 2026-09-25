@@ -27,3 +27,4 @@ put those things on the page.
 And children, props containing JSX, and compound components are simply different ways to achieve that composition.
 21. Headless component in react - Headless component in react does not have any styled UI to display , they are purely intended for providing functionality
 22. useRef hook- Refs are just like states except that changing them does not cause re render. They are frequently used for manual dom manipulaton.
+23. Hooks allow you to hook into rendering cycle of react. useState let us maintain a variable value across render cycle and triggers re render when the value changes. While the useRef maintain a variable value across render cycle but does not trigger re render 
