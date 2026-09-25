@@ -26,3 +26,4 @@ put those things on the page.
 20. what is component composition in react? - Instead of creating one component that does everything, build small components with clear responsibilities and combine them to build more complex UI.
 And children, props containing JSX, and compound components are simply different ways to achieve that composition.
 21. Headless component in react - Headless component in react does not have any styled UI to display , they are purely intended for providing functionality
+22. useRef hook- Refs are just like states except that changing them does not cause re render. They are frequently used for manual dom manipulaton.
