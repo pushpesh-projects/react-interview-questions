@@ -1,5 +1,21 @@
 1. What does BrowserRouter do?
 2. Routes vs Route component
+Route has path and element.
+ <Route path="/about" element={<About />} />
 3. Link - its usage
+Link has to attribute. <Link to="/about">About</Link>
 4. Handling path params using useParam
-5.
+5. what is nested route - when you want to keep displaying some common ui on the page but changes some part of the page
+6. Layout route - The layout routes does not have its path per say. It is used to create the layout for your website.
+7. When we nest routes inside a parent route, react router is going to notice that this parent route does not havea  path so its going to match whatever path/url we are currently at and its going to rendre the Layout component and when it renders our layout component , we use <Outlet /> component to act like the placeholder to render the element of the child components.
+<BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/vans" element={<Vans />} />
+          <Route path="/vans/:id" element={<VanDetail />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  )
