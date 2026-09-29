@@ -38,11 +38,21 @@ placeholder to render the child routes element
         </Route>
       </Routes>
 10. Layout route with path
+It's the parent route of some nested routes that contains just
+the portion of the UI that will be shared. It will use an Outlet
+component.
 11. Index route- 
+It's the "default route" we want to render when the path
+of the parent route matches. It gives us a chance to render
+an element inside the parent's <Outlet /> at the same path
+as the parent route.
  <Route path="host" element={<HostLayout />}> - Layout route wit path
             <Route index element={<Dashboard />} /> Index route
             <Route path="income" element={<Income />} /> relative route
             <Route path="reviews" element={<Reviews />} />
           </Route>
-12
+12 Outlet component - 
+We use it anytime we have a parent Route that's wrapping 
+children routes. It renders the matching child route's
+`element` prop given in its route definition
 
