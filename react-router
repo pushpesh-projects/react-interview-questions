@@ -5,8 +5,10 @@ Route has path and element.
 3. Link - its usage
 Link has to attribute. <Link to="/about">About</Link>
 4. Handling path params using useParam
-5. what is nested route - when you want to keep displaying some common ui on the page but changes some part of the page
-6. Layout route - The layout routes does not have its path per say. It is used to create the layout for your website.
+5. what is nested route - when you want to keep displaying some common ui on the page but changes some part of the page, then we can create nested route setup.
+In this set up , the parent route can have path prop which represents the base route path and element which generally reperesent a Layout component.The UI of this layout 
+6. Layout route - The layout routes does not have its path per say. It is used to create the layout for your website. In the layout component, we use Outlet which acts as a 
+placeholder to render the child routes element 
 7. When we nest routes inside a parent route, react router is going to notice that this parent route does not havea  path so its going to match whatever path/url we are currently at and its going to rendre the Layout component and when it renders our layout component , we use <Outlet /> component to act like the placeholder to render the element of the child components.
 <BrowserRouter>
       <Routes>
@@ -19,3 +21,28 @@ Link has to attribute. <Link to="/about">About</Link>
       </Routes>
     </BrowserRouter>
   )
+8. Relative route, 
+9. pathless layout route
+ <Routes>
+        <Route element={<Layout />}> pathless layout route
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="vans" element={<Vans />} />
+          <Route path="vans/:id" element={<VanDetail />} />
+          
+          <Route path="host" element={<HostLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="income" element={<Income />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
+        </Route>
+      </Routes>
+10. Layout route with path
+11. Index route- 
+ <Route path="host" element={<HostLayout />}> - Layout route wit path
+            <Route index element={<Dashboard />} /> Index route
+            <Route path="income" element={<Income />} /> relative route
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
+12
+
