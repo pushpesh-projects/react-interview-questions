@@ -69,6 +69,16 @@ Using . as the value for the to property in a React Router <NavLink> component l
                     Dashboard
                 </NavLink>
 
+15. using relative="path" with Link in react router
+In React Router v6, the relative="path" prop changes how relative links (like ..) are resolved so they follow the URL pathname segments instead of the configured route hierarchy.
+relative="route" (Default)	Traverses up one level based on how your <Route> components are nested.	If a layout or parent route wraps the view, it jumps back to that parent route config.
+relative="path"	Traverses up one segment of the actual browser URL string, exactly like standard HTML <a> tags.	If your URL is /blog/posts/123, .. drops 123 and takes you strictly to /blog/posts.
+<Link
+                to=".."
+                relative="path"
+                className="back-button"
+            >&larr; <span>Back to all vans</span></Link>
+16. 
 
 
 
