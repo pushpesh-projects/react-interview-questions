@@ -59,6 +59,16 @@ children routes. It renders the matching child route's
 In React Router (v6+), the end prop is used on the <NavLink> component to ensure that the link is only highlighted as "active" when the current URL matches its to path exactly.
 <NavLink> matches routes recursively. If a user navigates to a nested child route (like /users/profile), the parent link (/users) will also remain active. Adding the end prop restricts the matching logic strictly to the end of the URL path.
 /): Without the end prop, a <NavLink to="/"> will match every page on your site because every URL starts with /. Adding end ensures it is only active on the homepage.
+14. Using . as to propery value in NavLink
+Using . as the value for the to property in a React Router <NavLink> component links to the current route's relative path or parent-relative current directory depending on the relative configuration.
+ <NavLink
+                    to="."
+                    end
+                    style={({ isActive }) => isActive ? activeStyles : null}
+                >
+                    Dashboard
+                </NavLink>
+
 
 
 
