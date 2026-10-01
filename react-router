@@ -78,7 +78,13 @@ relative="path"	Traverses up one segment of the actual browser URL string, exact
                 relative="path"
                 className="back-button"
             >&larr; <span>Back to all vans</span></Link>
-16. 
+16. useOutletContext - 
+Often parent routes manage state or other values you want shared with child routes. You can create your own context provider if you like, but this is such a common situation that it's built-into <Outlet>.
+parent component provides the context
+<Outlet context={[count, setCount]} />;
+child component receives the context
+const [count, setCount] = useOutletContext();
+
 
 
 
