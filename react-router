@@ -85,7 +85,17 @@ parent component provides the context
 child component receives the context
 const [count, setCount] = useOutletContext();
 
-
-
-
-
+17. useSearchParams / query params- This hook helps to get query string value from the url.
+18. Link with to="?type=simple to define the query params- we can set a query string using Link in react router. to clear the query string , we can either write to="" or to=".">
+<Link 
+                    to="?type=rugged"
+                    className="van-type rugged"
+                >Rugged</Link>
+                <Link 
+                    to="."
+                    className="van-type clear-filters"
+                >Clear filter</Link>
+19. using setter method to set the search param or query params
+ <button onClick={() => setSearchParams({type: "jedi"})}>Jedi</button>
+ <button onClick={() => setSearchParams(type="jedi")}>Jedi</button>
+ <button onClick={() => setSearchParams(?type="jedi")}>Jedi</button>
