@@ -99,3 +99,4 @@ const [count, setCount] = useOutletContext();
  <button onClick={() => setSearchParams({type: "jedi"})}>Jedi</button>
  <button onClick={() => setSearchParams(type="jedi")}>Jedi</button>
  <button onClick={() => setSearchParams(?type="jedi")}>Jedi</button>
+ <button onClick={() => setSearchParams({})}>Clear</button> // empty search params
