@@ -100,3 +100,31 @@ const [count, setCount] = useOutletContext();
  <button onClick={() => setSearchParams(type="jedi")}>Jedi</button>
  <button onClick={() => setSearchParams(?type="jedi")}>Jedi</button>
  <button onClick={() => setSearchParams({})}>Clear</button> // empty search params
+20. useSearchParams(): The useSearchParams hook is a specialized utility used in modern React frameworks—most notably React Router, Next.js, and Remix—to read and manipulate the query parameters (the string following the ? in a URL.
+In React Router and Remix, useSearchParams mimics the behavior of React's standard useState hook. It returns an array containing two elements: a read-only instance of URLSearchParams and a setter function to update the URL
+Reading Values
+import { useSearchParams } from 'react-router-dom';
+
+function ProductFilter() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Read a specific query param (always returns a string or null)
+  const category = searchParams.get('category') || 'all'; 
+  const page = Number(searchParams.get('page') || '1'); // Convert to number if needed
+
+  return <div>Category: {category} | Page: {page}</div>;
+}
+Updating the URL
+The setSearchParams setter updates the URL query string and triggers a component re-render without reloading the page. You can pass a direct object, a new URLSearchParams instance, or use a functional update
+// 1. Direct object update (replaces the entire query string)
+setSearchParams({ category: 'shoes', page: '2' });
+
+// 2. Functional update (preserves existing parameters while changing one)
+setSearchParams((prev) => {
+  prev.set('page', '3');
+  return prev;
+});
+
+// 3. Optional navigation settings (e.g., replace history instead of push)
+setSearchParams({ category: 'shoes' }, { replace: true });
+
