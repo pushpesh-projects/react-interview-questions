@@ -128,7 +128,20 @@ setSearchParams((prev) => {
 // 3. Optional navigation settings (e.g., replace history instead of push)
 setSearchParams({ category: 'shoes' }, { replace: true });
 
-21. useLocation hook-
+21. Link State
+In React Router, the state prop on a Link component allows you to pass data from one route to another without showing it in the URL. 
+This is incredibly useful for passing temporary information, such as tracking where a user came from, passing a complex UI configuration, or sending data that shouldn't clutter the browser address bar.
+Lost on New Tabs: The location state is tied strictly to the browser's current tab history session. If a user right-clicks the link and selects "Open in New Tab", or copies and pastes the URL to a new window, location.state will be null or undefined.
+• Preserved on Refresh: Unlike standard React component state (useState), React Router stores this state inside the browser's native History API. This means if the user refreshes the page in the same tab, the state is actually preserved.
+• Not for Essential Data: Because state is lost when sharing links or opening new tabs, never use it to pass critical information required to render the page (like a raw user ID needed to fetch an API). Use traditional URL parameters (/details/:id) or search queries (?id=101) for essential page initialization.
+<Link to={van.id} state="whatever">
+<Link to={van.id} state={{ search: searchParams }}>
+<Link to={van.id} state={{ search: searchParams.toString() }}>
+
+
+22. useLocation hook-
+ const location = useLocation()
+
 The useLocation hook is a built-in feature of React Router that returns the current location object representing the app's current URL. Think of it like a React-friendly, immutable version of window.location that automatically triggers a component re-render whenever the URL changes.
 The Location Object Breakdown
 When you invoke const location = useLocation();, the returned object contains the following properties:
@@ -137,8 +150,6 @@ When you invoke const location = useLocation();, the returned object contains th
 • hash: The URL hash fragment (e.g., "#settings").
 • state: An arbitrary data object passed hiddenly during navigation (e.g., { internalId: 45 }).
 • key: A unique string representing this specific location entry.
-
-22. Link State
 
 23. 404 page: catch all route
  <Route path="*" element={<h1>Page not found!</h1>} />
@@ -158,6 +169,8 @@ What component can we render if the user IS logged in?
 <Outlet />
 
 25. Navigate component: react router provides another component called Navigate which is a bit more forceful in sending the user to another route. It automatically send the user to different routes
+
+26. 
 
 
 
