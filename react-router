@@ -144,6 +144,20 @@ When you invoke const location = useLocation();, the returned object contains th
  <Route path="*" element={<h1>Page not found!</h1>} />
 <Route path="*" element={<NotFound />}/>
 
-24. 
+24. protected route
+How did we change our route definitions in order to "protect" certain routes from an un-logged-in user?
+Wrapped the routes we wanted to protect in a Layout route
+that contains logic to redirect someone if they're not logged
+in
+
+What component can we use to automatically send someone to a different route in our app?
+<Navigate to="/login" />
+
+What component can we render if the user IS logged in?
+
+<Outlet />
+
+25. Navigate component: react router provides another component called Navigate which is a bit more forceful in sending the user to another route. It automatically send the user to different routes
+
 
 
