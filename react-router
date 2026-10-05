@@ -128,3 +128,22 @@ setSearchParams((prev) => {
 // 3. Optional navigation settings (e.g., replace history instead of push)
 setSearchParams({ category: 'shoes' }, { replace: true });
 
+21. useLocation hook-
+The useLocation hook is a built-in feature of React Router that returns the current location object representing the app's current URL. Think of it like a React-friendly, immutable version of window.location that automatically triggers a component re-render whenever the URL changes.
+The Location Object Breakdown
+When you invoke const location = useLocation();, the returned object contains the following properties:
+• pathname: The path of the URL (e.g., "/dashboard").
+• search: The query string starting with a question mark (e.g., "?id=123").
+• hash: The URL hash fragment (e.g., "#settings").
+• state: An arbitrary data object passed hiddenly during navigation (e.g., { internalId: 45 }).
+• key: A unique string representing this specific location entry.
+
+22. Link State
+
+23. 404 page: catch all route
+ <Route path="*" element={<h1>Page not found!</h1>} />
+<Route path="*" element={<NotFound />}/>
+
+24. 
+
+
