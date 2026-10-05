@@ -28,3 +28,4 @@
 5. aria-haspopup
 6. aria-hidden
 7. aria-controls
+8. aria-live: "polite" and aria-live: "assertive"
