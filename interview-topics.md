@@ -23,3 +23,5 @@
 23. optimizing large-data workflows across UI rendering, API calls, pagination, caching, lazy loading, virtualization, and asynchronous processing.
 24. **React Router**
 25. Component libraries - MUI/ANT/ShadCn/Fluent
+26. frontend observability
+27. frontend build tools - vite/ webpack/ npm/yarn
