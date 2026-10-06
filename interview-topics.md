@@ -6,7 +6,7 @@
 6. Cross browser support
 7. Tailwind css / Bootstrap
 8. Usability and Accessibility
-9. Security
+9. Security Best practices and libraries
 10.**Performance optimization - UI performance optimization (rendering efficiency, bundle size, load time,  memory usage, network utilization,)**
 11. Scalable / Maintainable / Reusable / Clean coding
 12. React Best practices
@@ -22,3 +22,4 @@
 22. authentication/authorization
 23. optimizing large-data workflows across UI rendering, API calls, pagination, caching, lazy loading, virtualization, and asynchronous processing.
 24. **React Router**
+25. Component libraries - MUI/ANT/ShadCn/Fluent
