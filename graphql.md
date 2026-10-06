@@ -6,5 +6,7 @@
 6. what is graph, type, fields, node, arguments, return types in graphql?
 7. what is graphql explorer
 8. what is appolo client and server?
-9. what is subscription in graphql? 
+9. what is subscription in graphql?
+10. what are the scaler types defined in the graphql?
+11. 
    
