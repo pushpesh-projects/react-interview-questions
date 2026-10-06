@@ -151,6 +151,12 @@ When you invoke const location = useLocation();, the returned object contains th
 • state: An arbitrary data object passed hiddenly during navigation (e.g., { internalId: 45 }).
 • key: A unique string representing this specific location entry.
 
+ <Link
+                to={`..${location.state.search}`}
+                relative="path"
+                className="back-button"
+            >&larr; <span>Back to all vans</span></Link>
+
 23. 404 page: catch all route
  <Route path="*" element={<h1>Page not found!</h1>} />
 <Route path="*" element={<NotFound />}/>
