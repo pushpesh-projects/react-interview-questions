@@ -25,4 +25,5 @@
 25. Component libraries - MUI/ANT/ShadCn/Fluent
 26. frontend observability
 27. frontend build tools - vite/ webpack/ npm/yarn
-28. 
+28. Frontend CI tools
+29. Multi language support
