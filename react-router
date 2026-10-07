@@ -176,7 +176,9 @@ What component can we render if the user IS logged in?
 
 25. Navigate component: react router provides another component called Navigate which is a bit more forceful in sending the user to another route. It automatically send the user to different routes
 
-26. 
+26. Navigate state
+
+27. useNavigate hook
 
 
 
