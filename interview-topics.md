@@ -30,3 +30,4 @@
 30. Error boundary and failure handling in React
 31. React Portal
 32. React virtualisation
+33. Difference between CSR/ SSR ?
