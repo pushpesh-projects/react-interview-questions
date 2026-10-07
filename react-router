@@ -179,6 +179,44 @@ What component can we render if the user IS logged in?
 26. Navigate state
 
 27. useNavigate hook
+const navigate = useNavigate() navigate is a function which we can call to send the user to other route
+navigate("/some/route");
+navigate("/some/route?search=param");
+
+navigate(
+  {
+    pathname: "/some/route",
+    search: "?search=param",
+    hash: "#hash",
+  },
+  {
+    state: { some: "state" },
+  },
+);
+// back
+// often used to close modals
+navigate(-1);
+
+// forward
+// often used in a multistep wizard workflows
+navigate(1);
+
+28. History stack and replace
+browser maintain the history of navigation inside the history stack so that the back and forward buttons to work.
+navigate("/host", { replace: true }) - in this example say we were on /login route and after login we redirect user to /host route then without using the { replace: true }
+the history stack can look like below(user lands on the home page, then go to about page , the try to go to host page , then redirected to login page , after successful login, redirected to /host page)
+/ -> /about -> /host -> /login -> /host
+with replace, the history stack will look like(we do this on successful login, istead of just redirecting user to the /host page , we also replace the current route /login from the history). In this way, when user clicks on back button they are not /login page again 
+/ -> /about -> /host -> /host
+now we see the 2 /host route in histroy
+fixing above
+<Navigate 
+                to="/login" 
+                state={{message: "You must log in first"}} 
+                replace
+            />)
+
+the above code replaces the protected route from the history
 
 
 
