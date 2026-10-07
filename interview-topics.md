@@ -27,3 +27,6 @@
 27. frontend build tools - vite/ webpack/ npm/yarn
 28. Frontend CI tools
 29. Multi language support
+30. Error boundary and failure handling in React
+31. React Portal
+32. React virtualisation
