@@ -11,7 +11,7 @@
 11. Scalable / Maintainable / Reusable / Clean coding
 12. React Best practices
 13. Front end best practices
-14. **API calling - REST** - error, loading, success, empty, duplicate call prevention
+14. **API calling - REST** - error, loading, success, empty, duplicate call prevention, retry logic
 15. **API calling - GraphQl**
 16. **State management library- RTK**
 17. **Middleware- Saga, Redux Thunk**
@@ -31,3 +31,5 @@
 31. React Portal
 32. React virtualisation
 33. Difference between CSR/ SSR ?
+34. How to make sure we are writing logs from the frontend
+35. CDN
