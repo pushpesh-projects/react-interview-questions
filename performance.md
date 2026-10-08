@@ -2,3 +2,11 @@
 Ans- React starts rendering from the root component and recursively traverses down the component/element tree. For each component, React executes it and processes the elements/components returned from it.
 It continues this process for the children until it reaches the leaf/host elements such as <div>, <button> , etc
 This recursive traversal allows React to build and compare the UI tree during reconcilliation.
+
+2. What are the three phases of the rendering process
+   Ans - Render phase - React runs the code from the component that had the state change, and all the descendent components of that component as well. During this phase, it creates the virtual representation of the UI without changing the actual DOM.
+   Reconciliation - React compares the new UI tree with the previous UI tree to determine what has changed. It identifies the minimum set of updates required to bring the UI in sync with the latest state and props
+   Commit phase - React takes the changes identified during the reconciliation and applies them to the actual DOM. The commit phase is also where React handles things that need to happen after the DOM has been updated.
+   (such as running the useLayoutEffect, scheduling the useEffect to run after the commit, updating or removing DOM nodes)
+
+   Render -> (What should the UI look like? ) -> Reconciliation (What actually changed) -> Commit (Apply those changes to the real DOM)
