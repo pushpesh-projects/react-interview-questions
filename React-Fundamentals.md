@@ -30,4 +30,5 @@ And children, props containing JSX, and compound components are simply different
 23. Hooks allow you to hook into rendering cycle of react. useState let us maintain a variable value across render cycle and triggers re render when the value changes. While the useRef maintain a variable value across render cycle but does not trigger re render
 24. MULTI Page vs Single Page application -
 25. CSR vs SSR vs SSG
-26. 
+26. when does the clean up function in useEffect run?
+    Ans - clean up function runs 1. when the component unmounts 2. when the dependencies change then react runs it before running the clean up. 3 in strict mode, react renders it twice.
