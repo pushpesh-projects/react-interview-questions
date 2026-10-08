@@ -32,3 +32,6 @@ And children, props containing JSX, and compound components are simply different
 25. CSR vs SSR vs SSG
 26. when does the clean up function in useEffect run?
     Ans - clean up function runs 1. when the component unmounts 2. when the dependencies change then react runs it before running the clean up. 3 in strict mode, react renders it twice.
+27. React custom hooks
+28. React Error boundary
+29. React portals
