@@ -10,3 +10,16 @@ This recursive traversal allows React to build and compare the UI tree during re
    (such as running the useLayoutEffect, scheduling the useEffect to run after the commit, updating or removing DOM nodes)
 
    Render -> (What should the UI look like? ) -> Reconciliation (What actually changed) -> Commit (Apply those changes to the real DOM)
+
+3. Using dev tool to measure performance
+   Ans - We should first measure the performance before optimizing anything.
+
+4. StrictMode in react
+   Ans - <StrictMode> lets you find common bugs in your components early during development.
+   Strict Mode enables the following development-only behaviors:
+   Your components will re-render an extra time to find bugs caused by impure rendering.
+   Your components will re-run Effects an extra time to find bugs caused by missing Effect cleanup.
+   Your components will re-run refs callbacks an extra time to find bugs caused by missing ref cleanup.
+   Your components will be checked for usage of deprecated APIs.
+
+5. 
