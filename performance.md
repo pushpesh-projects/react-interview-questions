@@ -30,15 +30,17 @@ This recursive traversal allows React to build and compare the UI tree during re
    Recognize the large component which is not necessary for all the users when the app loads
    Import the lazy() and Suspense components from the React package.
    Use the lazy() function to dynamically import the component you want to lazy load. Argument to lazy function should be a function that returns the result of the import() function.
+   React.lazy() expects a function that returns a Promise resolving to a module containing a default export.
    React.lazy() takes a function as parameter and return of this function should be a dynamic import and the path it importing should default export a react component.
-   const ProductsList = React.lazy(() => {
-  return import("./ProductsList") --> This should be on the top level in the code, not inside the component code.
+   const ProductsList = React.lazy(() => { return import("./ProductsList") --> This should be on the top level in the code, not inside the component code. Here ProductList is a suspended component
 }) This is called a suspended component. Think of it like a promise which is waiting for someone to call on it
+
+import() is a JavaScript dynamic import that returns a Promise. React.lazy() accepts a function that returns that Promise. React waits for the Promise to resolve, extracts the module's default export, and renders it. While the Promise is pending, React Suspense displays the configured fallback UI.
    Wrap the lazy loaded component in a Suspense component which will display a fallback UI while the component is being loaded.
 
    <Suspense fallback={<h2>Loadig...</h2>}>
           <ProductList />
-          </Suspense>
+   </Suspense>
           
 
    which page to lazy load for reducing bundle size
