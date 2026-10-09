@@ -604,17 +604,24 @@ must be addressed separately.
 6. React renders the component.
 
 
+# Bundle Size Analysis in Vite
 
-## Bundle Size Analysis in Vite
+Bundle analysis helps identify which files and libraries contribute the most to the production bundle. It is useful for:
 
-Bundle analysis helps identify which files and libraries contribute most to the final production bundle. This is useful for detecting large dependencies and validating whether code splitting is working effectively.
+- Detecting large dependencies
+- Measuring the size of the main bundle
+- Verifying that code splitting is working
+- Finding opportunities for lazy loading
 
-### Install
+## Installation
 
 ```bash
 npm install --save-dev rollup-plugin-visualizer
+```
 
-Configure Vite
+## Vite Configuration
+
+```js
 // vite.config.js
 
 import { defineConfig } from "vite";
@@ -631,34 +638,71 @@ export default defineConfig({
     }),
   ],
 });
+```
 
-Generate Report
+## Generate Bundle Report
+
+Run a production build:
+
+```bash
 npm run build
+```
 
+A report (`stats.html`) will be generated automatically and opened in the browser.
 
-This generates a visual report (stats.html) showing:
+## What to Analyze
 
-Main bundle size
-Lazy-loaded chunks
-Third-party library sizes
-Gzip and Brotli compressed sizes
-What to Look For
-Large dependencies (e.g., chart libraries, PDF viewers, editors)
-Size of the main bundle (index.js)
-Whether route-level code splitting is working
-Opportunities to lazy load heavy features
-Example
+### Main Bundle Size
 
-Before code splitting:
+Check the size of the initial bundle downloaded by the user.
 
+Example:
+
+```text
+Before Code Splitting:
 index.js (1.8 MB)
 
-
-After code splitting:
-
+After Code Splitting:
 index.js (450 KB)
-Users.chunk.js (80 KB)
-Reports.chunk.js (120 KB)
+```
 
+A smaller main bundle generally improves initial load performance.
 
-This indicates that the initial bundle size has been reduced and route-specific code is being downloaded only when needed, improving application startup performance.
+### Lazy-Loaded Chunks
+
+Verify that route-level pages and heavy features are split into separate chunks.
+
+Example:
+
+```text
+index.js          (450 KB)
+Users.chunk.js     (80 KB)
+Reports.chunk.js  (120 KB)
+```
+
+This indicates that Users and Reports code will be downloaded only when needed.
+
+### Large Third-Party Dependencies
+
+Look for heavy libraries that significantly increase bundle size.
+
+Examples:
+
+```text
+chart.js
+xlsx
+react-pdf
+monaco-editor
+```
+
+These are often good candidates for lazy loading.
+
+## Typical Workflow
+
+1. Build the application.
+
+   ```bash
+   npm run build
+   ```
+
+2. Open the visualizer
