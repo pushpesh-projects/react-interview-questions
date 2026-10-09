@@ -23,14 +23,23 @@ This recursive traversal allows React to build and compare the UI tree during re
    Your components will be checked for usage of deprecated APIs.
 
 5. Code splitting
-   Code splitting is a performance optimization technique in React where the application bundle is divided into smaller chunks and loaded on demand instead of loading the entire application at once. React implements code splitting using React.lazy(), Suspense and dynamic imports to improve the initial loading performance.
+   Code splitting is a performance optimization technique in React where the application bundle is divided into smaller chunks and loaded on demand instead of loading the entire application at once. React implements code splitting using React.lazy(), Suspense and dynamic imports to improve the initial loading performance. Dynamic import is a built in javascript function import()
    In simple words , instead of loading the entire application at once React loads only the code that is required for the current page or component.
 
    Steps to implement lazy loading
    Recognize the large component which is not necessary for all the users when the app loads
    Import the lazy() and Suspense components from the React package.
    Use the lazy() function to dynamically import the component you want to lazy load. Argument to lazy function should be a function that returns the result of the import() function.
+   React.lazy() takes a function as parameter and return of this function should be a dynamic import and the path it importing should default export a react component.
+   const ProductsList = React.lazy(() => {
+  return import("./ProductsList") --> This should be on the top level in the code, not inside the component code.
+}) This is called a suspended component. Think of it like a promise which is waiting for someone to call on it
    Wrap the lazy loaded component in a Suspense component which will display a fallback UI while the component is being loaded.
+
+   <Suspense fallback={<h2>Loadig...</h2>}>
+          <ProductList />
+          </Suspense>
+          
 
    which page to lazy load for reducing bundle size
    In production React applications, route-level pages are usually lazy-loaded by default because users rarely visit all pages during a session. This reduces the initial bundle size and improves first load performance. However, lazy loading every tiny page can create unnecessary network requests and navigation delays. Therefore, the common approach is to lazy load most routes and heavyweight features while keeping frequently used shared components such as layouts, headers, sidebars, and navigation in the main bundle. This provides the best balance between startup performance and user experience.
