@@ -26,6 +26,9 @@ This recursive traversal allows React to build and compare the UI tree during re
    Code splitting is a performance optimization technique in React where the application bundle is divided into smaller chunks and loaded on demand instead of loading the entire application at once. React implements code splitting using React.lazy(), Suspense and dynamic imports to improve the initial loading performance. Dynamic import is a built in javascript function import()
    In simple words , instead of loading the entire application at once React loads only the code that is required for the current page or component.
 
+   what code splitting solves
+   Code splitting using React.lazy() reduces the amount of JavaScript downloaded, parsed, and executed during the initial application load. It improves frontend bundle performance and user-perceived loading time. However, it does not make backend APIs respond faster. If page slowness is caused by slow API responses, database queries, or network latency, those issues must be solved at the backend or infrastructure level, not with code splitting.
+
    Steps to implement lazy loading
    Recognize the large component which is not necessary for all the users when the app loads
    Import the lazy() and Suspense components from the React package.
@@ -50,5 +53,21 @@ import() is a JavaScript dynamic import that returns a Promise. React.lazy() acc
    npx vite-bundle-visualizer
 
    Route-level pages should generally be lazy loaded because users do not visit every route. For route-specific subcomponents, lazy loading should be applied selectively. Components that are required immediately for rendering the page should be bundled with the page. Components that are large, contain heavy third-party libraries, appear in tabs, modals, drawers, or are loaded only after user interaction are good candidates for lazy loading. The goal is to reduce the initial JavaScript without introducing unnecessary chunk requests.
+
+   Note: -
+   Code splitting is a performance optimization technique that breaks a large JavaScript bundle into smaller chunks. In React, this is commonly implemented using React.lazy() and Suspense.
+
+When the application is built, the bundler (Webpack, Vite, Rollup) detects dynamic imports such as:
+
+JSX
+const UsersPage = React.lazy(() => import("./UsersPage"));
+
+and generates a separate JavaScript chunk for that component instead of including it in the main bundle.
+
+Initially, when the user loads the application, only the main bundle and the code required for the current route are downloaded. If the user later navigates to /users, React Router matches the route and tries to render UsersPage. Since it is lazy-loaded, React executes the dynamic import, which triggers the browser to download the corresponding chunk from the frontend server.
+
+While the chunk is being downloaded, React Suspense displays a fallback UI such as a loading spinner. Once the download completes and the Promise resolves, React renders the component.
+
+This improves initial page load performance because users download only the code they need rather than the entire application upfront.
 
     
