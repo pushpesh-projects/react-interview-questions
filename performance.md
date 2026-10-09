@@ -22,4 +22,8 @@ This recursive traversal allows React to build and compare the UI tree during re
    Your components will re-run refs callbacks an extra time to find bugs caused by missing ref cleanup.
    Your components will be checked for usage of deprecated APIs.
 
-5. 
+5. Code splitting
+   Code splitting is a performance optimization technique in React where the application bundle is divided into smaller chunks and loaded on demand instead of loading the entire application at once. React implements code splitting using React.lazy(), Suspense and dynamic imports to improve the initial loading performance.
+   In simple words , instead of loading the entire application at once React loads only the code that is required for the current page or component.
+
+    
