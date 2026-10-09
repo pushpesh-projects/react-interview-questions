@@ -602,3 +602,63 @@ must be addressed separately.
 4. `Suspense` displays the fallback UI.
 5. The Promise resolves.
 6. React renders the component.
+
+
+
+## Bundle Size Analysis in Vite
+
+Bundle analysis helps identify which files and libraries contribute most to the final production bundle. This is useful for detecting large dependencies and validating whether code splitting is working effectively.
+
+### Install
+
+```bash
+npm install --save-dev rollup-plugin-visualizer
+
+Configure Vite
+// vite.config.js
+
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { visualizer } from "rollup-plugin-visualizer";
+
+export default defineConfig({
+  plugins: [
+    react(),
+    visualizer({
+      open: true,
+      gzipSize: true,
+      brotliSize: true,
+    }),
+  ],
+});
+
+Generate Report
+npm run build
+
+
+This generates a visual report (stats.html) showing:
+
+Main bundle size
+Lazy-loaded chunks
+Third-party library sizes
+Gzip and Brotli compressed sizes
+What to Look For
+Large dependencies (e.g., chart libraries, PDF viewers, editors)
+Size of the main bundle (index.js)
+Whether route-level code splitting is working
+Opportunities to lazy load heavy features
+Example
+
+Before code splitting:
+
+index.js (1.8 MB)
+
+
+After code splitting:
+
+index.js (450 KB)
+Users.chunk.js (80 KB)
+Reports.chunk.js (120 KB)
+
+
+This indicates that the initial bundle size has been reduced and route-specific code is being downloaded only when needed, improving application startup performance.
