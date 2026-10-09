@@ -26,4 +26,18 @@ This recursive traversal allows React to build and compare the UI tree during re
    Code splitting is a performance optimization technique in React where the application bundle is divided into smaller chunks and loaded on demand instead of loading the entire application at once. React implements code splitting using React.lazy(), Suspense and dynamic imports to improve the initial loading performance.
    In simple words , instead of loading the entire application at once React loads only the code that is required for the current page or component.
 
+   Steps to implement lazy loading
+   Recognize the large component which is not necessary for all the users when the app loads
+   Import the lazy() and Suspense components from the React package.
+   Use the lazy() function to dynamically import the component you want to lazy load. Argument to lazy function should be a function that returns the result of the import() function.
+   Wrap the lazy loaded component in a Suspense component which will display a fallback UI while the component is being loaded.
+
+   which page to lazy load for reducing bundle size
+   In production React applications, route-level pages are usually lazy-loaded by default because users rarely visit all pages during a session. This reduces the initial bundle size and improves first load performance. However, lazy loading every tiny page can create unnecessary network requests and navigation delays. Therefore, the common approach is to lazy load most routes and heavyweight features while keeping frequently used shared components such as layouts, headers, sidebars, and navigation in the main bundle. This provides the best balance between startup performance and user experience.
+
+   how to measure the bundle size
+   npx vite-bundle-visualizer
+
+   Route-level pages should generally be lazy loaded because users do not visit every route. For route-specific subcomponents, lazy loading should be applied selectively. Components that are required immediately for rendering the page should be bundled with the page. Components that are large, contain heavy third-party libraries, appear in tabs, modals, drawers, or are loaded only after user interaction are good candidates for lazy loading. The goal is to reduce the initial JavaScript without introducing unnecessary chunk requests.
+
     
